@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado do cálculo do quadrado</title>
+</head>
+<body>
+ 
+    <form action="/resultado" method="POST">
+        <label for="numero">Digite um número:</label>
+        <input type="text" id="numero" name="numero">
+        <button type="submit">Calcular quadrado</button>
+        <p>O quadrado de {{numero}} é {{quadrado}}.</p>
+    </form>
+    <h1>Resultado do cálculo do quadrado</h1>
+
+    <p>O quadrado de {{numero}} é {{quadrado}}.</p>
+</body>
+</html>

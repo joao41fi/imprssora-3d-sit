@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de duas rotas no Flask</title>
+</head>
+<body>
+    <h1>Exemplo de duas rotas no Flask</h1>
+
+    <form action="/" method="POST">
+        <label for="nome">Digite seu nome:</label>
+        <input type="text" id="nome" name="nome">
+        <button type="submit">Enviar</button>
+    </form>
+
+    {% if nome %}
+    <p>Olá, {{ nome }}!</p>
+    {% endif %}
+</body>
+</html>
