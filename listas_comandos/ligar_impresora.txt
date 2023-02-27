@@ -1,0 +1,5 @@
+
+pronsole // para ligar o pribterface
+
+connect/dev/ttyACM0 250000 // para ligar a impressora
+
