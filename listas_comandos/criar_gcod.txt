@@ -1,0 +1,3 @@
+sudo apt-get install slic3r
+
+slic3r <nomedoarquivo>.stl --load <arquivo_de_configuracao> --output <nomedoarquivo>.gcode
