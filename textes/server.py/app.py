@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from info import *
+from scripts.info import *
 
 app = Flask(__name__)
 global nome
