@@ -1,0 +1,2 @@
+load arquivo.gcode
+print
