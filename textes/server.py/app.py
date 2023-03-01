@@ -27,6 +27,14 @@ def but2():
     nome = tras('texte.pickle')
     return render_template('index.html',nome=nome)
 
+@app.route('/on',  methods=['POST'])
+def on():
+    if request.form.getlist('match')[0] == 'world':
+      print('marcado')
+    return render_template('index.html')
+    
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
