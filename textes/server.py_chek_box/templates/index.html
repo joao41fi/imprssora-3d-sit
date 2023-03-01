@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo Flask</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body>
+	<h1>Marque as caixas de seleção para executar a função</h1>
+	<input type="checkbox" name="checkbox1"> Marque aqui para executar a função 1<br>
+	<input type="checkbox" name="checkbox2"> Marque aqui para executar a função 2<br>
+	<input type="checkbox" name="checkbox3"> Marque aqui para executar a função 3<br>
+	<script type="text/javascript">
+		lidarComCheckbox('input[name="checkbox1"]', '/executar-funcao-1');
+		lidarComCheckbox('input[name="checkbox2"]', '/executar-funcao-2');
+		lidarComCheckbox('input[name="checkbox3"]', '/executar-funcao-3');
+	</script>
+   
+</body>
+</html>
