@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from flask import *
+from scrpt import *
 import os
 import time
 app = Flask(__name__)
@@ -16,9 +17,7 @@ def Ligar_Impresora():
 		if request.form['checkbox_funcao'] == 'true':
 			print('primeira')
 			# Execute sua função aqui
-			os.system("pronsole")
-			time.sleep(10)
-			os.system("connect/dev/ttyACM0 250000")
+			enviar_comando_pronsole("G28")
             
 			#result = subprocess.run(["G28"], capture_output=True)
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
