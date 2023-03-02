@@ -14,6 +14,7 @@ def Ligar_Impresora():
 			print('primeira')
 			# Execute sua função aqui
 			resultado = subprocess.check_output('ls', shell=True)
+			print(resultado)
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
 		else:
 			return jsonify({'mensagem': 'A caixa de seleção não foi marcada.'})
