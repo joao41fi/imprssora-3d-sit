@@ -3,7 +3,7 @@ import time
 
 # Inicia o Pronsole
 os.system("cd /")
-os.system("pronsole -n -p /dev/ttyACM0 -b 250000 &")
+os.system("pronsole -p /dev/ttyACM0 -b 250000 &")
 
 # Aguarda alguns segundos para o Pronsole iniciar
 time.sleep(5)
