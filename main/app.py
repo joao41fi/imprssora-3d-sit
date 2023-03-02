@@ -45,4 +45,10 @@ def executar_funcao_3():
 	else:
 		return jsonify({'mensagem': 'Erro ao executar a função.'})
 	
+@app.route('/upload', methods=['POST'])
+def upload():
+    file = request.files['file']
+    file.save('uploads/' + file.filename)
+    return render_template('index.html')
+
 app.run(debug=True)
