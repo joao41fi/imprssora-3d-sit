@@ -8,7 +8,7 @@ os.system("x-terminal-emulator -e pronsole")
 time.sleep(2)
 
 # Envia um comando para o Pronsole
-os.system("echo G28 > /tmp/pipe_pronsole")
+os.system("echo connect/dev/ttyACM0 250000 > /tmp/pipe_pronsole")
 
 # Lê a resposta do Pronsole
 with open('/tmp/pipe_pronsole', 'r') as f:
