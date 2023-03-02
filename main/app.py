@@ -13,7 +13,7 @@ def Ligar_Impresora():
 		if request.form['checkbox_funcao'] == 'true':
 			print('primeira')
 			# Execute sua função aqui
-			resulte = subprocess.run(["cd /"], capture_output=True)
+			resulte = subprocess.run(["cd"], capture_output=True)
 			result = subprocess.run(["/usr/bin/pronsole"], capture_output=True)
 			output = result.stdout.decode()
 			outpute = resulte.stdout.decode()
