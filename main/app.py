@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from flask import *
 import subprocess
 app = Flask(__name__)
