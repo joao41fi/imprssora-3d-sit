@@ -17,7 +17,7 @@ def Ligar_Impresora():
 			print('primeira')
 			# Execute sua função aqui
 			os.system("pronsole")
-			time.sleep(2)
+			time.sleep(10)
 			os.system("connect/dev/ttyACM0 250000")
             
 			#result = subprocess.run(["G28"], capture_output=True)
