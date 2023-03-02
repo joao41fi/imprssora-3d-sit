@@ -17,7 +17,8 @@ def Ligar_Impresora():
 		if request.form['checkbox_funcao'] == 'true':
 			print('primeira')
 			# Execute sua função aqui
-			enviar_comando_pronsole("G28")
+			enviar_comando_pronsole("connect/dev/ttyACM0 250000")
+			
             
 			#result = subprocess.run(["G28"], capture_output=True)
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
