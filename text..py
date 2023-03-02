@@ -5,7 +5,7 @@ import time
 os.system("lxterminal -e pronsole &")
 
 # Aguarda alguns segundos para o Pronsole inicializar
-time.sleep(20)
+time.sleep(10)
 
 # Envia um comando para o Pronsole
 os.system("connect/dev/ttyACM0 250000 > /tmp/pipe_pronsole")
