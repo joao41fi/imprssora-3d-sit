@@ -2,7 +2,7 @@ import os
 import time
 
 # Abre o Pronsole em um terminal separado
-os.system("gnome-terminal --command='bash -c \"pronsole\"' &")
+os.system("lxterminal -e pronsole &")
 
 # Aguarda alguns segundos para o Pronsole inicializar
 time.sleep(2)
