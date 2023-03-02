@@ -13,6 +13,8 @@ def Ligar_Impresora():
 		if request.form['checkbox_funcao'] == 'true':
 			print('primeira')
 			# Execute sua função aqui
+			resultado = subprocess.check_output('cd ..', shell=True)
+			print(resultado)
 			resultado = subprocess.check_output('ls', shell=True)
 			print(resultado)
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
