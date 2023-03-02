@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from flask import *
-import subprocess
+import os
 app = Flask(__name__)
 
 @app.route('/')
@@ -15,15 +15,7 @@ def Ligar_Impresora():
 		if request.form['checkbox_funcao'] == 'true':
 			print('primeira')
 			# Execute sua função aqui
-			resulte = subprocess.run(["ls"], capture_output=True)
-			#result = subprocess.run([""], capture_output=True)
-			#output = result.stdout.decode()
-			outpute = resulte.stdout.decode()
-			#print(output)
-			#result = subprocess.run(["connect/dev/ttyACM0 250000"], capture_output=True)
-			#output = result.stdout.decode()
-			#print(output)
-			print(outpute)
+			os.system("pronsole")
 			#result = subprocess.run(["G28"], capture_output=True)
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
 		else:
