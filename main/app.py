@@ -1,5 +1,5 @@
 from flask import *
-
+import subprocess
 app = Flask(__name__)
 
 @app.route('/')
@@ -13,6 +13,7 @@ def Ligar_Impresora():
 		if request.form['checkbox_funcao'] == 'true':
 			print('primeira')
 			# Execute sua função aqui
+			resultado = subprocess.check_output('ls', shell=True)
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
 		else:
 			return jsonify({'mensagem': 'A caixa de seleção não foi marcada.'})
