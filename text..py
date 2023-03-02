@@ -1,20 +1,19 @@
-import subprocess
+import os
 import time
 
-# Abre o Pronsole em um processo separado
-process = subprocess.Popen(['pronsole'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+# Abre o Pronsole em um terminal separado
+os.system("x-terminal-emulator -e pronsole")
 
 # Aguarda alguns segundos para o Pronsole inicializar
 time.sleep(2)
 
 # Envia um comando para o Pronsole
-process.stdin.write(b"G28\n")
+os.system("echo G28 > /tmp/pipe_pronsole")
 
 # Lê a resposta do Pronsole
-output = process.stdout.readline().decode()
+with open('/tmp/pipe_pronsole', 'r') as f:
+    output = f.readline()
 print(output)
 
-# Fecha o processo do Pronsole
-process.stdin.close()
-process.stdout.close()
-process.wait()
+# Fecha o terminal do Pronsole
+os.system("killall x-terminal-emulator")
