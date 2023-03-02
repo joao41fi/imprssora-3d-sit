@@ -7,6 +7,12 @@ os.system("pronsole -n -p /dev/ttyACM0 -b 250000 &")
 # Aguarda alguns segundos para o Pronsole iniciar
 time.sleep(5)
 
+# Estabelece uma conexão com a impressora 3D
+os.system("echo connect /dev/ttyACM0 250000 > /tmp/pipe_pronsole")
+
+# Aguarda a conexão ser estabelecida
+time.sleep(2)
+
 # Envia um comando G-code para a impressora 3D
 os.system("echo G28 > /tmp/pipe_pronsole")
 
