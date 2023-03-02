@@ -13,10 +13,9 @@ def Ligar_Impresora():
 		if request.form['checkbox_funcao'] == 'true':
 			print('primeira')
 			# Execute sua função aqui
-			resultado = subprocess.check_output('cd ..', shell=True)
-			print(resultado)
-			resultado = subprocess.check_output('ls', shell=True)
-			print(resultado)
+			result = subprocess.run(["ls"], capture_output=True)
+			output = result.stdout.decode()
+			print(output)
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
 		else:
 			return jsonify({'mensagem': 'A caixa de seleção não foi marcada.'})
