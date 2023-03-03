@@ -2,7 +2,7 @@ import serial
 import time
 
 # Configure a porta serial com as configurações adequadas para a impressora 3D
-ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
+ser = serial.Serial('/dev/ttyACM0', 250000, timeout=1)
 
 # Defina a taxa de transmissão para 250000 baud
 ser.baudrate = 250000
