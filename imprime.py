@@ -8,7 +8,7 @@ ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
 ser.baudrate = 250000
 
 # Abra o arquivo G-code e leia seu conteúdo
-with open('arquivo.gcode', 'r') as f:
+with open('/Desktop/imprssora-3d-sit/arquivo.gcode', 'r') as f:
     gcode = f.readlines()
 
 # Configure um buffer de impressão
