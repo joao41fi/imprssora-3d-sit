@@ -10,7 +10,7 @@ with open('/home/joao41/Desktop/imprssora-3d-sit/arquivo.gcode', 'r') as f:
     for line in f:
         # Remove espaços em branco e quebras de linha
         line = line.strip()
-        
+        print(line)
         # Envia a linha para a impressora 3D
         ser.write(line.encode('utf-8') + b'\n')
         
