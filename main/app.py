@@ -1,17 +1,22 @@
 #!/usr/bin/env python
 
+
 from flask import *
 from scrpt import *
 import os
 import time
+import os
 import sys
 
-sys.path.append("main/db")
-
+meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
+sys.path.insert(0, meus_modulos_dir)
 
 from  ler_tabela import *
-from defes import *
 from atualizar import *
+
+meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'script'))
+sys.path.insert(0, meus_modulos_dir)
+from defes import *
 
 app = Flask(__name__)
 
