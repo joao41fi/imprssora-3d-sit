@@ -17,6 +17,8 @@ from atualizar import *
 meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'script'))
 sys.path.insert(0, meus_modulos_dir)
 from defes import *
+meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'main'))
+sys.path.insert(0, meus_modulos_dir)
 
 app = Flask(__name__)
 
@@ -32,8 +34,8 @@ def Ligar_Impresora():
 			print('primeira')
 			# Execute sua função aqui
 			ficheiro =abrir('main/ficheiro.db','fichieros')
-			
-			imprimir(ficheiro[0][0])
+			print(ficheiro)
+			#imprimir(ficheiro[0][0])
 			
             
 			#result = subprocess.run(["G28"], capture_output=True)
@@ -75,7 +77,7 @@ def upload():
     file = request.files['file']
     caminho = 'uploads/' + file.filename
     atualizar_tabela("main/ficheiro.db", "fichieros", "FICH ",caminho)
-    file.save('uploads/' + file.filename)
+    file.save('/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename)
     return render_template('index.html')
 
 app.run(debug=True,host='0.0.0.0')
