@@ -3,8 +3,8 @@ import time
 
 def imprimir(ficheiro):
 
-    ser = serial.Serial('/dev/ttyACM0', 250000, timeout=1)
-    with open('/home/joao41/Desktop/imprssora-3d-sit/arquivo.gcode', 'r') as f:
+    ser = serial.Serial('../dev/ttyACM0', 250000, timeout=1)
+    with open('../home/joao41/Desktop/imprssora-3d-sit/arquivo.gcode', 'r') as f:
      gcode = f.readlines()
 
 
