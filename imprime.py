@@ -2,7 +2,7 @@ import serial
 import time
 import os 
 
-os.chdir('/')
+#os.chdir('/')
 # Configure a porta serial com as configurações adequadas para a impressora 3D
 ser = serial.Serial('/dev/ttyACM0', 250000, timeout=1)
 # Abra o arquivo G-code e leia seu conteúdo
