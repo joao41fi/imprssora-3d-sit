@@ -4,6 +4,11 @@ from flask import *
 from scrpt import *
 import os
 import time
+import sys
+
+sys.path.append("main/db")
+
+
 from  ler_tabela import *
 from defes import *
 from atualizar import *
