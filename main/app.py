@@ -33,7 +33,7 @@ def Ligar_Impresora():
 		if request.form['checkbox_funcao'] == 'true':
 			print('primeira')
 			# Execute sua função aqui
-			ficheiro =abrir('main/ficheiro.db','fichieros')
+			ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
 			print(ficheiro)
 			#imprimir(ficheiro[0][0])
 			
