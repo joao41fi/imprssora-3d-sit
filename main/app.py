@@ -4,6 +4,10 @@ from flask import *
 from scrpt import *
 import os
 import time
+from  ler_tabela import *
+from defes import *
+from atualizar import *
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -17,7 +21,9 @@ def Ligar_Impresora():
 		if request.form['checkbox_funcao'] == 'true':
 			print('primeira')
 			# Execute sua função aqui
-			ligar_impressora()
+			ficheiro =abrir('main/ficheiro.db','fichieros')
+			
+			imprimir(ficheiro[0][0])
 			
             
 			#result = subprocess.run(["G28"], capture_output=True)
@@ -34,6 +40,7 @@ def Ligar_Camara():
 		if request.form['checkbox_funcao'] == 'true':
 			print('camara on ')
 			# Execute sua função aqui
+
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
 		else:
 			print('camara off ')
@@ -56,6 +63,8 @@ def executar_funcao_3():
 @app.route('/upload', methods=['POST'])
 def upload():
     file = request.files['file']
+    caminho = 'uploads/' + file.filename
+    atualizar_tabela("main/ficheiro.db", "fichieros", "FICH ",caminho)
     file.save('uploads/' + file.filename)
     return render_template('index.html')
 
