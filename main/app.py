@@ -66,6 +66,7 @@ def executar_funcao_3():
 	if 'checkbox_funcao' in request.form:
 		if request.form['checkbox_funcao'] == 'true':
 			# Execute sua função aqui
+			home()
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
 		else:
 			return jsonify({'mensagem': 'A caixa de seleção não foi marcada.'})
