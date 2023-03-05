@@ -35,7 +35,7 @@ def Ligar_Impresora():
 			# Execute sua função aqui
 			ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
 			print(ficheiro)
-			imprimir(ficheiro[0][0])
+			#imprimir(ficheiro[0][0])
 			
             
 			#result = subprocess.run(["G28"], capture_output=True)
