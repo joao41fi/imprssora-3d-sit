@@ -7,6 +7,7 @@ import os
 import time
 import os
 import sys
+import threading
 
 meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
 sys.path.insert(0, meus_modulos_dir)
@@ -35,7 +36,9 @@ def Ligar_Impresora():
 			# Execute sua função aqui
 			ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
 			print(ficheiro)
-			imprimir(ficheiro[0][0])
+			t = threading.Thread(target=imprimir(ficheiro[0][0]))
+            t.start()
+			
 			
             
 			#result = subprocess.run(["G28"], capture_output=True)
