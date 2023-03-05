@@ -37,11 +37,8 @@ def Ligar_Impresora():
 			ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
 			print(ficheiro)
 			t = threading.Thread(target=imprimir(ficheiro[0][0]))
-            t.start()
-			
-			
-            
-			#result = subprocess.run(["G28"], capture_output=True)
+			t.start()
+             
 			return jsonify({'mensagem': 'Função executada com sucesso!'})
 		else:
 			return jsonify({'mensagem': 'A caixa de seleção não foi marcada.'})
