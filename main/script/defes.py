@@ -12,13 +12,13 @@ def imprimir(ficheiro):
 
     for line in gcode:
     
-     line = line.strip()
-     print(line)
+      line = line.strip()
+      print(line)
     
-     if line.startswith(';'):
-        continue
-     ser.write(line.encode() + b'\n')
-     response = ser.readline()
+      if line.startswith(';'):
+         continue
+      ser.write(b"?\n"(line))
+      response = ser.readline()
 
     ser.close()
    
