@@ -13,7 +13,7 @@ def imprimir(ficheiro):
     for line in gcode:
     
      line = line.strip()
-
+     print(line)
     
      if line.startswith(';'):
         continue
