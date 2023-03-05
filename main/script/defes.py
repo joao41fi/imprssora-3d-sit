@@ -3,7 +3,8 @@ import time
 import os 
 
 def imprimir(ficheiro):
-
+    
+    print(os.getcwd())
     ser = serial.Serial(os.chdir('/dev/ttyACM0'), 250000, timeout=1)
     with open(os.chdir('/home/joao41/Desktop/imprssora-3d-sit/main/'+ficheiro), 'r') as f:
      gcode = f.readlines()
