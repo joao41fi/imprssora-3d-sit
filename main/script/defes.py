@@ -45,4 +45,4 @@ def home():
 
 if __name__ == '__main__':
  ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
- imprimir(ficheiro[0][0])
+ imprimir('/home/joao41/Desktop/imprssora-3d-sit/arquivo.gcode')
