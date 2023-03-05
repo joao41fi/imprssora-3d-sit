@@ -35,7 +35,7 @@ def Ligar_Impresora():
 			# Execute sua função aqui
 			ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
 			print(ficheiro)
-			#imprimir(ficheiro[0][0])
+			imprimir(ficheiro[0][0])
 			
             
 			#result = subprocess.run(["G28"], capture_output=True)
@@ -76,7 +76,7 @@ def executar_funcao_3():
 def upload():
     file = request.files['file']
     caminho = '/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename
-    atualizar_tabela("/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db", "fichieros", "FICH ",caminho)
+    atualizar_tabela("main/ficheiro.db", "fichieros", "FICH ",caminho)
     file.save('/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename)
     return render_template('index.html')
 
