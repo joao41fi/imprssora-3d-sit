@@ -21,6 +21,7 @@ def imprimir(ficheiro):
         continue
      ser.write(line.encode() + b'\n')
      response = ser.readline()
+     print(response)
 
     ser.close()
    
