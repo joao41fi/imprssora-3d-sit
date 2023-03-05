@@ -17,7 +17,7 @@ def imprimir(ficheiro):
     
       if line.startswith(';'):
          continue
-      ser.write(b"?\n"(line))
+      ser.write(b"?\n"(line.encode()))
       response = ser.readline()
 
     ser.close()
