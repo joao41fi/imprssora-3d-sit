@@ -1,7 +1,12 @@
 import serial
 import time
 import os 
+import sys
+meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
+sys.path.insert(0, meus_modulos_dir)
 
+from  ler_tabela import *
+from atualizar import *
 def imprimir(ficheiro):
     
     
@@ -39,5 +44,5 @@ def home():
 
 
 if __name__ == '__main__':
- 
- imprimir('/home/joao41/Desktop/imprssora-3d-sit/main/uploads/CFFFP_telefon_stand.gcode')
+ ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
+ imprimir(ficheiro[0][0])
