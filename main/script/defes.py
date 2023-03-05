@@ -7,7 +7,7 @@ def imprimir(ficheiro):
     print(os.getcwd())
     #ser = serial.Serial(os.chdir('/dev/ttyACM0'), 250000, timeout=1)
     ser  = serial.Serial(os.path.abspath('/dev/ttyACM0'), 250000, timeout=1)
-    with open(os.chdir(os.path.abspath(ficheiro)), 'r') as f:
+    with open(os.path.abspath(ficheiro), 'r') as f:
      gcode = f.readlines()
 
 
