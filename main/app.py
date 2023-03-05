@@ -80,4 +80,6 @@ def upload():
     file.save('/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename)
     return render_template('index.html')
 
-app.run(debug=True,host='0.0.0.0')
+
+if __name__ == '__main__':
+	app.run(debug=True,host='0.0.0.0')
