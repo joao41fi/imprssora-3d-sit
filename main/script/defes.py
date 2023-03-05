@@ -6,19 +6,21 @@ def imprimir(ficheiro):
     
     
     ser  = serial.Serial(os.path.abspath('/dev/ttyACM0'), 250000, timeout=1)
+    time.sleep(2)
+    
     with open(os.path.abspath(ficheiro), 'r') as f:
      gcode = f.readlines()
 
-
+    
     for line in gcode:
     
-      line = line.strip()
-      print(line)
+     line = line.strip()
+     print(line)
     
-      if line.startswith(';'):
-         continue
-      ser.write(b"?\n"(line.encode()))
-      response = ser.readline()
+     if line.startswith(';'):
+        continue
+     ser.write(line.encode() + b'\n')
+     response = ser.readline()
 
     ser.close()
    
