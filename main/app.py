@@ -2,7 +2,7 @@
 
 
 from flask import *
-from scrpt import *
+
 import os
 import time
 import os
@@ -16,7 +16,7 @@ sys.path.insert(0, meus_modulos_dir)
 from  ler_tabela import *
 from atualizar import *
 
-meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'script'))
+meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'scrpts.py'))
 sys.path.insert(0, meus_modulos_dir)
 from defes import *
 meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'main'))
@@ -79,12 +79,15 @@ def executar_funcao_3():
 	
 @app.route('/upload', methods=['POST'])
 def upload():
+    
     file = request.files['file']
-    caminho = '/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename
+    ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
+    caminhos = '/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename
 
-    atualizar_tabela("/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db", "fichieros", "FICH ",caminho)
+    atualizar_tabela("/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db", "fichieros", "FICH ",caminhos)
 
-
+    caminho('load '+caminhos,'load '+ficheiro) # textar 
+    
     file.save('/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename)
     return render_template('index.html')
 
