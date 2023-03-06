@@ -83,9 +83,9 @@ def upload():
     file = request.files['file']
     ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
     caminhos = '/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename
-
+    caminhos2 = 'Desktop/imprssora-3d-sit/main/uploads/' + file.filename
     atualizar_tabela("/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db", "fichieros", "FICH ",caminhos)
-    nova = 'load '+caminhos
+    nova = 'load '+caminhos2
     velha = 'load Desktop/imprssora-3d-sit/main/ficheiro[0][0]
     print(velha)
      # textar 
