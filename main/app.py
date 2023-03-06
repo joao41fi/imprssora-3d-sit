@@ -85,8 +85,10 @@ def upload():
     caminhos = '/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename
 
     atualizar_tabela("/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db", "fichieros", "FICH ",caminhos)
-
-    caminho(('load '+caminhos),('load '+ficheiro)) # textar 
+    nova = 'load'+caminhos
+    velha = 'load'+ficheiro
+    print(velha)
+    caminho(nova,velha) # textar 
     
     file.save('/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename)
     return render_template('index.html')
