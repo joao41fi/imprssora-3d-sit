@@ -38,7 +38,7 @@ def Ligar_Impresora():
 			ficheiro =abrir('/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db','fichieros')
 			print(ficheiro)
 			#por os ficheiros a alterar 
-			subprocess.run(["pronsole","-c","Desktop/texte.cfg"])
+			subprocess.run(["pronsole","-c","Desktop/imprssora-3d-sit/main/scrpts.py/texte.cfg"])
 
 			
 			
