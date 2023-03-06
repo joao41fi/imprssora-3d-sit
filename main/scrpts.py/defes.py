@@ -16,7 +16,7 @@ def home():
 def caminho(new_line,old_line ):
  print('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh')
  filename = '/home/joao41/Desktop/imprssora-3d-sit/main/scrpts.py/texte.cfg'
- print(filename)
+ 
  # Substitui a linha antiga pela nova em todo o arquivo
  for line in fileinput.input(filename, inplace=True):
      if line.strip() == old_line:
