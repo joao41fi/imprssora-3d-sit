@@ -86,7 +86,7 @@ def upload():
 
     atualizar_tabela("/home/joao41/Desktop/imprssora-3d-sit/main/ficheiro.db", "fichieros", "FICH ",caminhos)
     nova = 'load '+caminhos
-    velha = 'load '+ficheiro[0][0]
+    velha = 'load Desktop/imprssora-3d-sit/main/'+ficheiro[0][0]
     print(velha)
      # textar 
     
