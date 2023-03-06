@@ -14,7 +14,7 @@ def home():
 
 # Define o nome do arquivo
 def caminho(new_line,old_line ):
- filename = 'main/scrpts.py/texte.cfg'
+ filename = '/home/joao41/Desktop/imprssora-3d-sit/main/scrpts.py/texte.cfg'
 
  # Substitui a linha antiga pela nova em todo o arquivo
  for line in fileinput.input(filename, inplace=True):
