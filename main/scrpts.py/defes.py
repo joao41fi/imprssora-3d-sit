@@ -3,7 +3,7 @@ import time
 import os 
 import sys
 import fileinput
-
+import cv2 
 
 def home():
     ser  = serial.Serial(os.path.abspath('/dev/ttyACM0'), 250000, timeout=1)
@@ -14,7 +14,7 @@ def home():
 
 # Define o nome do arquivo
 def caminho(new_line,old_line ):
- print('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh')
+
  filename = '/home/joao41/Desktop/imprssora-3d-sit/main/scrpts.py/texte.cfg'
  
  # Substitui a linha antiga pela nova em todo o arquivo
