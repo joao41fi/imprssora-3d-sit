@@ -27,6 +27,7 @@ def caminho(new_line,old_line ):
 
 def get_frame():
     while True:
+        camera = cv2.VideoCapture(0)
         # lê um quadro da câmera
         ret, frame = cap.read()
 
