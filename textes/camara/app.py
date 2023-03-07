@@ -1,16 +1,14 @@
 from flask import Flask, render_template, Response
-import cv2 # pip install opencv-python
+import cv2
 
 app = Flask(__name__)
 
-# cria uma instância para a captura de vídeo
-cap = cv2.VideoCapture(0)
-
 # função para obter o feed de vídeo da câmera
 def get_frame():
+    camera = cv2.VideoCapture(0)
     while True:
         # lê um quadro da câmera
-        ret, frame = cap.read()
+        ret, frame = camera.read()
 
         # converte o quadro para um objeto de fluxo de bytes
         ret, buffer = cv2.imencode('.jpg', frame)
@@ -19,6 +17,9 @@ def get_frame():
         # retorna o quadro como uma resposta de streaming
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+    # libera o objeto de captura da câmera
+    camera.release()
 
 # rota para renderizar a página com o feed de vídeo da câmera
 @app.route('/')
@@ -31,7 +32,9 @@ def video_feed():
     return Response(get_frame(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-# inicia o aplicativo Flask
+
+
+
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
 #
