@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # função para obter o feed de vídeo da câmera
 def get_frame():
-    camera = cv2.VideoCapture(1)
+    camera = cv2.VideoCapture(0)
     while True:
         # lê um quadro da câmera
         ret, frame = camera.read()
