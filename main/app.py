@@ -2,10 +2,9 @@
 
 
 from flask import *
-
+import cv2
 import os
 import time
-import os
 import sys
 import threading
 import subprocess
@@ -94,6 +93,10 @@ def upload():
    
     return render_template('index.html')
 
+@app.route('/video_feed')
+def video_feed():
+    return Response(get_frame(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
 	app.run(debug=True,host='0.0.0.0')
