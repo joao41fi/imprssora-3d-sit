@@ -8,6 +8,7 @@ import time
 import sys
 import threading
 import subprocess
+cap = cv2.VideoCapture(0)
 
 meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
 sys.path.insert(0, meus_modulos_dir)
