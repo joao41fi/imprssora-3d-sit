@@ -4,6 +4,7 @@ import os
 import sys
 import fileinput
 import cv2 
+cap = cv2.VideoCapture(0)
 
 def home():
     ser  = serial.Serial(os.path.abspath('/dev/ttyACM0'), 250000, timeout=1)

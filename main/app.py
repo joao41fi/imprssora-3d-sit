@@ -22,6 +22,8 @@ meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'main
 sys.path.insert(0, meus_modulos_dir)
 
 app = Flask(__name__)
+cap = cv2.VideoCapture(0)
+
 
 @app.route('/')
 def index():
@@ -94,6 +96,7 @@ def upload():
     return render_template('index.html')
 
 @app.route('/video_feed')
+
 def video_feed():
     return Response(get_frame(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
