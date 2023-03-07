@@ -9,20 +9,6 @@ import sys
 import threading
 import subprocess
 
-meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
-sys.path.insert(0, meus_modulos_dir)
-
-from  ler_tabela import *
-from atualizar import *
-
-meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'scrpts.py'))
-sys.path.insert(0, meus_modulos_dir)
-from defes import *
-meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'main'))
-sys.path.insert(0, meus_modulos_dir)
-
-app = Flask(__name__)
-
 def get_frame():
     camera = cv2.VideoCapture(0)
     while True:
@@ -39,6 +25,23 @@ def get_frame():
 
     # libera o objeto de captura da câmera
     camera.release()
+
+
+meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
+sys.path.insert(0, meus_modulos_dir)
+
+from  ler_tabela import *
+from atualizar import *
+
+meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'scrpts.py'))
+sys.path.insert(0, meus_modulos_dir)
+from defes import *
+meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'main'))
+sys.path.insert(0, meus_modulos_dir)
+
+app = Flask(__name__)
+
+
 
 
 @app.route('/')
