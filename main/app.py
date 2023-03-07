@@ -27,7 +27,7 @@ sys.path.insert(0, meus_modulos_dir)
 app = Flask(__name__)
 
 def get_frame():
-    camera = cv2.VideoCapture(0)
+    camera = cv2.VideoCapture(1)
     while True:
         # lê um quadro da câmera
         ret, frame = camera.read()
@@ -43,16 +43,19 @@ def get_frame():
     # libera o objeto de captura da câmera
     camera.release()
 
-# rota para renderizar a página com o feed de vídeo da câmera
+
+
+t = threading.Thread(target=get_frame())
+    
 @app.route('/')
 def index():
-    return render_template('index.html')
+	return render_template('index.html')
 
-# rota para transmitir o feed de vídeo da câmera como uma resposta de streaming
 @app.route('/video_feed')
 def video_feed():
-    return Response(get_frame(),
+    return Response( t.start(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 @app.route('/Ligar_Impresora', methods=['POST'])
 
