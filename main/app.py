@@ -8,7 +8,8 @@ import time
 import sys
 import threading
 import subprocess
-
+from flask_sse import sse
+import time
 
 meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
 sys.path.insert(0, meus_modulos_dir)
@@ -23,6 +24,8 @@ meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'main
 sys.path.insert(0, meus_modulos_dir)
 
 app = Flask(__name__)
+app.config["REDIS_URL"] = "redis://localhost"
+app.register_blueprint(sse, url_prefix='/stream')
 
 @app.route('/')
 def index():
@@ -94,10 +97,10 @@ def upload():
    
     return render_template('index.html')
 
-@app.route('/video_feed')
-def video_feed():
-    # Retorna a imagem atualizada
-    return Response(get_frame(), mimetype='multipart/x-mixed-replace; boundary=frame')
+@app.route('/image')
+def image():
+    return app.response_class(get_image_data(), mimetype='image/png')
+
 
 if __name__ == '__main__':
 	
