@@ -8,7 +8,7 @@ import time
 import sys
 import threading
 import subprocess
-from flask_socketio import SocketIO, emi
+from flask_socketio import *
 import base64
 
 meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
