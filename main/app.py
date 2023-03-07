@@ -8,8 +8,7 @@ import time
 import sys
 import threading
 import subprocess
-from flask_sse import sse
-import time
+
 
 meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
 sys.path.insert(0, meus_modulos_dir)
@@ -24,14 +23,7 @@ meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'main
 sys.path.insert(0, meus_modulos_dir)
 
 app = Flask(__name__)
-app.config["REDIS_URL"] = "redis://localhost"
-app.register_blueprint(sse, url_prefix='/stream')
-def get_image_data():
-    while True:
-        # Aqui você pode colocar a lógica para gerar os dados da imagem
-        yield open('imagem.jpg', 'rb').read()
-        time.sleep(1)
-	
+
 @app.route('/')
 def index():
 	return render_template('index.html')
@@ -102,20 +94,7 @@ def upload():
    
     return render_template('index.html')
 
-def generate():
-    while True:
-        with open('image.jpg', 'rb') as file:
-            data = file.read()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + data + b'\r\n')
-        time.sleep(0.1)
-
-@app.route('/stream')
-def stream():
-    return Response(generate(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
 
 
 if __name__ == '__main__':
-	
 	app.run(debug=True,host='0.0.0.0')

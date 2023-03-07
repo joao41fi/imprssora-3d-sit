@@ -112,8 +112,13 @@
 </div>
 </div>
 </div> 
-
-
+     <img id="myImg" src="imagem.jpg" />
+    <script>
+      setInterval(function() {
+        document.getElementById("myImg").src = "imagem.jpg?" + new Date().getTime();
+      }, 5000);
+   
+   
 
 	<script type="text/javascript">
 		lidarComCheckbox('input[name="Ligar Impresora"]', '/Ligar_Impresora');
