@@ -24,3 +24,17 @@ def caminho(new_line,old_line ):
      print(line, end='')
 
 
+def get_frame():
+    # Carrega a imagem
+    img_path = "image.jpg" # Substitua com o caminho para a sua imagem
+    img = cv2.imread(img_path)
+    
+    while True:
+        # Codifica a imagem em formato JPEG
+        ret, jpeg = cv2.imencode('.jpg', img)
+        frame = jpeg.tobytes()
+        
+        # Retorna o frame para exibir no navegador
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+

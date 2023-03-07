@@ -94,8 +94,11 @@ def upload():
    
     return render_template('index.html')
 
-
+@app.route('/video_feed')
+def video_feed():
+    # Retorna a imagem atualizada
+    return Response(get_frame(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-	cap = cv2.VideoCapture(0)
+	
 	app.run(debug=True,host='0.0.0.0')
