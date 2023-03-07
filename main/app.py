@@ -45,7 +45,7 @@ def get_frame():
 
 
 
-t = threading.Thread(target=get_frame())
+t = threading.Thread(target=get_frame)
     
 @app.route('/')
 def index():
