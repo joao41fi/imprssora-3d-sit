@@ -8,9 +8,6 @@ import time
 import sys
 import threading
 import subprocess
-from flask_socketio import *
-import base64
-
 meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
 sys.path.insert(0, meus_modulos_dir)
 
@@ -24,29 +21,28 @@ meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'main
 sys.path.insert(0, meus_modulos_dir)
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'mysecret'
-socketio = SocketIO(app)
 
-# Função que lê a imagem da webcam e a codifica em base64
-def get_image():
+def get_frame():
     camera = cv2.VideoCapture(0)
     while True:
+        # lê um quadro da câmera
         ret, frame = camera.read()
-        ret, buffer = cv2.imencode('.jpg', frame)
-        frame = base64.b64encode(buffer).decode('utf-8')
-        yield frame
 
-# Rota para renderizar a página que exibe o vídeo da webcam
+        # converte o quadro para um objeto de fluxo de bytes
+        ret, buffer = cv2.imencode('.jpg', frame)
+        frame = buffer.tobytes()
+
+        # retorna o quadro como uma resposta de streaming
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+    # libera o objeto de captura da câmera
+    camera.release()
+
+
 @app.route('/')
 def index():
-    return render_template('index.html')
-
-# Evento que envia a imagem da webcam para o cliente por meio de um websocket
-@socketio.on('image_event')
-def image_event():
-    for frame in get_image():
-        socketio.emit('image_response', {'image_data': frame})
-
+	return render_template('index.html')
 
 @app.route('/Ligar_Impresora', methods=['POST'])
 
@@ -114,6 +110,11 @@ def upload():
    
     return render_template('index.html')
 
+@app.route('/video_feed')
+def video_feed():
+    return Response(get_frame(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')
+	app.run(debug=True,host='0.0.0.0')
