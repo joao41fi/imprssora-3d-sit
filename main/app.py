@@ -8,7 +8,7 @@ import time
 import sys
 import threading
 import subprocess
-cap = cv2.VideoCapture(10)
+
 
 meus_modulos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'db'))
 sys.path.insert(0, meus_modulos_dir)
@@ -97,4 +97,5 @@ def upload():
 
 
 if __name__ == '__main__':
+	cap = cv2.VideoCapture(0)
 	app.run(debug=True,host='0.0.0.0')
