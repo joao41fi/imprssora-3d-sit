@@ -27,7 +27,7 @@ sys.path.insert(0, meus_modulos_dir)
 app = Flask(__name__)
 
 def get_frame():
-    camera = cv2.VideoCapture(1)
+    camera = cv2.VideoCapture(0)
     while True:
         # lê um quadro da câmera
         ret, frame = camera.read()
