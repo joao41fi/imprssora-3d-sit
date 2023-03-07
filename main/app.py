@@ -10,7 +10,7 @@ import threading
 import subprocess
 
 def get_frame():
-    camera = cv2.VideoCapture(0)
+    camera = cv2.VideoCapture(1)
     while True:
         # lê um quadro da câmera
         ret, frame = camera.read()
