@@ -93,7 +93,7 @@ def upload():
    
     return render_template('index.html')
 
-@app.route('/video_feed')
+
 
 if __name__ == '__main__':
 	app.run(debug=True,host='0.0.0.0')
