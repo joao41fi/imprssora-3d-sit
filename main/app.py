@@ -102,9 +102,18 @@ def upload():
    
     return render_template('index.html')
 
-@app.route('/image')
-def image():
-    return app.response_class(get_image_data(), mimetype='image/jpg')
+def generate():
+    while True:
+        with open('image.jpg', 'rb') as file:
+            data = file.read()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + data + b'\r\n')
+        time.sleep(0.1)
+
+@app.route('/stream')
+def stream():
+    return Response(generate(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 
 if __name__ == '__main__':

@@ -15,8 +15,7 @@
 <body>
 	<h1>Marque as caixas de seleção para executar a função</h1>
 	
-	<img :src="'/image?' + Math.random()" width="400" height="400">
-
+	<img src="/stream">
     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 		<input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" name="Ligar Impresora">
 		<label class="btn btn-outline-primary" for="btncheck1">Ligar Impresora</label>
@@ -113,20 +112,7 @@
 </div>
 </div>
 </div> 
- <script>
-	var source = new EventSource("/stream");
-	var app = new Vue({
-		el: '#app',
-		data: {
-			message: 'Atualizando imagem...'
-		},
-		mounted: function() {
-			source.onmessage = function(event) {
-				app.message = event.data;
-			};
-		}
-	});
- </script>
+
 
 
 	<script type="text/javascript">
