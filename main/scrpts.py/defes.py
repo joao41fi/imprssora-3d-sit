@@ -28,9 +28,8 @@ def caminho(new_line,old_line ):
 def get_frame():
     camera = cv2.VideoCapture(0)
     while True:
-        
         # lê um quadro da câmera
-        ret, frame = cap.read()
+        ret, frame = camera.read()
 
         # converte o quadro para um objeto de fluxo de bytes
         ret, buffer = cv2.imencode('.jpg', frame)
@@ -39,4 +38,6 @@ def get_frame():
         # retorna o quadro como uma resposta de streaming
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+    # libera o objeto de captura da câmera
     camera.release()
