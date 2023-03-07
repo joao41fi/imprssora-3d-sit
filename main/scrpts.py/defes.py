@@ -26,5 +26,5 @@ def caminho(new_line,old_line ):
 def get_image_data():
     while True:
         # Aqui você pode colocar a lógica para gerar os dados da imagem
-        yield open('imagem.png', 'rb').read()
+        yield open('imagem.jpg', 'rb').read()
         time.sleep(1)

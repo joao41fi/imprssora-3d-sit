@@ -99,7 +99,7 @@ def upload():
 
 @app.route('/image')
 def image():
-    return app.response_class(get_image_data(), mimetype='image/png')
+    return app.response_class(get_image_data(), mimetype='image/JPG')
 
 
 if __name__ == '__main__':
