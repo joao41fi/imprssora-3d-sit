@@ -13,13 +13,15 @@ def home():
 
 
 # Define o nome do arquivo
-def caminho(new_line,old_line ):
+def caminho(numero_linha, nova_linha ):
 
  filename = '/home/joao41/Desktop/imprssora-3d-sit/main/scrpts.py/texte.cfg'
- 
- # Substitui a linha antiga pela nova em todo o arquivo
- for line in fileinput.input(filename, inplace=True):
-     if line.strip() == old_line:
-         line = new_line + '\n'
-     print(line, end='')
 
+ with open(filename, 'r') as file:
+        linhas = file.readlines()
+ with open(filename, 'w') as file:
+        for indice, linha in enumerate(linhas):
+            if (indice == numero_linha - 1):
+                file.write(nova_linha + '\n')
+            else:
+                file.write(linha)

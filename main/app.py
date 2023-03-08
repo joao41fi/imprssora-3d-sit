@@ -89,7 +89,7 @@ def upload():
     velha = 'load Desktop/imprssora-3d-sit/main/'+ficheiro[0][0]
     print('velha-'+velha)
      # textar 
-    caminho(nova,velha)  
+    caminho(6,nova)  
     file.save('/home/joao41/Desktop/imprssora-3d-sit/main/uploads/' + file.filename)
    
     return render_template('index.html')
