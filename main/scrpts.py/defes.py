@@ -11,6 +11,12 @@ def home():
     ser.write(b"G28\n") 
     ser.close()
 
+def comandos(comand):
+    ser  = serial.Serial(os.path.abspath('/dev/ttyACM0'), 250000, timeout=1)
+    time.sleep(5)  
+    ser.write(b""+comand) 
+    ser.close()
+
 
 # Define o nome do arquivo
 def caminho(numero_linha, nova_linha ):

@@ -94,6 +94,14 @@ def upload():
    
     return render_template('index.html')
 
+@app.route('/', methods=['POST'])
+def update_number():
+    # Obter o número a partir do formulário
+    number = int(request.form['number'])
+    # Executar a função para atualizar o número
+    comandos('M109 S200')
+    # Renderizar a página com o novo número
+    return render_template('index.html', number=number)
 
 
 if __name__ == '__main__':

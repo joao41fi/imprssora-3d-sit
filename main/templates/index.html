@@ -26,6 +26,17 @@
 		<input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" name="checkbox3">
 		<label class="btn btn-outline-primary" for="btncheck3">home</label>
 	</div>
+
+    <form method="post">
+		<label for="number">Temp:</label>
+		<input type="number" id="number" name="number" value="0">
+		<button type="submit">temp nova</button>
+	  </form>
+	  {% if number %}
+	  <p>A temperatura a atigir é : {{ number }}</p>
+	  {% endif %}
+
+
     
     <form action="/upload" method="post" enctype="multipart/form-data">
 		
@@ -52,7 +63,14 @@
 	  </div>
 	</div>
   </div>
- 
+    <form method="post">
+      <label for="number">Número:</label>
+      <input type="number" id="number" name="number" value="0">
+      <button type="submit">Atualizar</button>
+    </form>
+    {% if number %}
+    <p>O número atualizado é: {{ number }}</p>
+    {% endif %}
  
  
    <div class="clearfix">
