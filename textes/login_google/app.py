@@ -6,9 +6,9 @@ import logging
 
 load_dotenv()
 app = Flask(__name__)
-client_id = os.getenv('652183645625-uk4cvnoqmhqa6lao9oki2g5j49gcc2e6.apps.googleusercontent.com')
-client_secret = os.getenv('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')
-app.secret_key = os.getenv("\\\x8eY\xf5\xab=\r.-\xbe\xe3}~\xc7\x19\x05z\xf4\xb5=\xfa\xf4")
+client_id = '652183645625-uk4cvnoqmhqa6lao9oki2g5j49gcc2e6.apps.googleusercontent.com'
+client_secret = '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'
+app.secret_key = "\\\x8eY\xf5\xab=\r.-\xbe\xe3}~\xc7\x19\x05z\xf4\xb5=\xfa\xf4"
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
@@ -27,7 +27,7 @@ def index():
     user_info_endpoint = '/oauth2/v2/userinfo'
     if google.authorized:
         google_data = google.get(user_info_endpoint).json()
-
+    print(google_data)
     return render_template('index.j2',
                            google_data=google_data,
                            fetch_url=google.base_url + user_info_endpoint)
