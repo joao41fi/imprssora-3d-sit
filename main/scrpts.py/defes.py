@@ -7,13 +7,13 @@ import cv2
 
 def home():
     ser  = serial.Serial(os.path.abspath('/dev/ttyACM0'), 250000, timeout=1)
-    time.sleep(5)  
+    time.sleep(2)  
     ser.write(b"G28\n") 
     ser.close()
 
 def comandos(comand):
     ser  = serial.Serial(os.path.abspath('/dev/ttyACM0'), 250000, timeout=1)
-    time.sleep(5)  
+    time.sleep(2)  
     ser.write(bytes(comand+ "\n", 'utf-8')) 
     ser.close()
 
