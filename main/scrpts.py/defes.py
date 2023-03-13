@@ -14,7 +14,7 @@ def home():
 def comandos(comand):
     ser  = serial.Serial(os.path.abspath('/dev/ttyACM0'), 250000, timeout=1)
     time.sleep(5)  
-    ser.write("b"+comand+'\n') 
+    ser.write(bytes(comand + "\n", 'utf-8')) 
     ser.close()
 
 

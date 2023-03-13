@@ -144,7 +144,7 @@ def update_number():
 def button():
     button_id = request.form['button_id']
     print(button_id)
-    comandos(' G '+button_id)
+    comandos('G '+button_id)
     return render_template('index.html')
 
 
