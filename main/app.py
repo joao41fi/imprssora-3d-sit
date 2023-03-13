@@ -136,7 +136,7 @@ def update_number():
     # Obter o número a partir do formulário
     number = int(request.form['number'])
     # Executar a função para atualizar o número
-    #comandos('M109 S200')
+    comandos('M109 S200')
     # Renderizar a página com o novo número
     return render_template('index.html', number=number)
 
@@ -144,6 +144,9 @@ def update_number():
 def button():
     button_id = request.form['button_id']
     print(button_id)
+    #comandos('G '+button_id)
     return render_template('index.html')
+
+
 if __name__ == '__main__':
 	app.run(debug=True,host='0.0.0.0')
