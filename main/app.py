@@ -60,6 +60,9 @@ def index():
 def login():
     return redirect(url_for('google.login'))
 
+@app.route('/other')
+def other():
+    return render_template('index.html')
 
 
 @app.route('/Ligar_Impresora', methods=['POST'])
