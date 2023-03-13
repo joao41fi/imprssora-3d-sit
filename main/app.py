@@ -137,8 +137,9 @@ def update_number():
     number = int(request.form['number'])
     # Executar a função para atualizar o número
     if number < 261:
-     comandos('M109 S'+number)
+     comandos('M109 S'+str(number))
     else :
+	    number = str(number)
 	    number = 'A temperatura não pode exceder os 260 graus'
     # Renderizar a página com o novo número
     return render_template('index.html', number=number)
